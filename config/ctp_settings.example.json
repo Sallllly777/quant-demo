@@ -1,0 +1,9 @@
+{
+  "userid": "${SIMNOW_USERID}",
+  "password": "${SIMNOW_PASSWORD}",
+  "brokerid": "9999",
+  "md_address": "tcp://182.254.243.31:30011",
+  "td_address": "tcp://182.254.243.31:30001",
+  "appid": "${SIMNOW_APPID}",
+  "auth_code": "${SIMNOW_AUTH_CODE}"
+}

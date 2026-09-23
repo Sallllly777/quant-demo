@@ -1,0 +1,3 @@
+# vnpy_ctp is normally installed in VeighNa Studio.
+# Pin versions here only when reproducing a known environment.
+vnpy_ctp
