@@ -1,0 +1,20 @@
+name: Offline checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - run: python -B -m unittest discover -s scripts/simnow -p 'test_*.py' -v
+      - run: python -B scripts/verify_evidence.py
+      - run: python -B docs/evidence/20261013-ag2612-latest/verify.py
+      - run: python -B scripts/check_docs.py --output /tmp/documentation.json
+      - run: python -B scripts/check_secrets.py --output /tmp/security.json

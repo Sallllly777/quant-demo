@@ -1,0 +1,64 @@
+{
+  "at": "2026-10-13T00:49:28.867+08:00",
+  "queries_complete": true,
+  "positions": [
+    {
+      "PosiDirection": "2",
+      "PositionDate": "1",
+      "YdPosition": 0,
+      "Position": 0,
+      "LongFrozen": 0,
+      "ShortFrozen": 0,
+      "TradingDay": "20261013",
+      "TodayPosition": 0,
+      "ExchangeID": "SHFE",
+      "InstrumentID": "ag2612"
+    }
+  ],
+  "orders": [
+    {
+      "OrderRef": "2",
+      "Direction": "0",
+      "CombOffsetFlag": "0",
+      "LimitPrice": 14688.0,
+      "VolumeTotalOriginal": 1,
+      "ExchangeID": "SHFE",
+      "OrderSubmitStatus": "0",
+      "TradingDay": "20261013",
+      "OrderSysID": "      144847",
+      "OrderStatus": "0",
+      "VolumeTraded": 1,
+      "VolumeTotal": 0,
+      "InsertDate": "20261013",
+      "InsertTime": "00:49:16",
+      "UpdateTime": "",
+      "CancelTime": "",
+      "FrontID": 1,
+      "SessionID": 261262923,
+      "InstrumentID": "ag2612"
+    },
+    {
+      "OrderRef": "3",
+      "Direction": "1",
+      "CombOffsetFlag": "3",
+      "LimitPrice": 14682.0,
+      "VolumeTotalOriginal": 1,
+      "ExchangeID": "SHFE",
+      "OrderSubmitStatus": "0",
+      "TradingDay": "20261013",
+      "OrderSysID": "      144861",
+      "OrderStatus": "0",
+      "VolumeTraded": 1,
+      "VolumeTotal": 0,
+      "InsertDate": "20261013",
+      "InsertTime": "00:49:20",
+      "UpdateTime": "",
+      "CancelTime": "",
+      "FrontID": 1,
+      "SessionID": 261262923,
+      "InstrumentID": "ag2612"
+    }
+  ],
+  "gross_position": 0,
+  "active_order_count": 0
+}

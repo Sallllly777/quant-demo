@@ -1,0 +1,20 @@
+{
+  "client": "VeighNa MainWindow + installed CtpMdApi; MD-only gateway wrapper",
+  "separate_process": true,
+  "separate_connection": false,
+  "same_upstream": "SimNow 182.254.243.31:30011",
+  "sends_orders": false,
+  "offline": true,
+  "headless": true,
+  "tick_count": 0,
+  "started_at": "2026-10-09T21:34:57.711795+08:00",
+  "vnpy_version": "4.4.0",
+  "ctp_version": "6.7.11.3",
+  "gateway_source_sha256": "84f954b3ab82d497fd93c37e2a3dc38c327b0db45a950a4f958055f14de07a55",
+  "client_source_sha256": "35f9bef3404134318893fdf049bae192ba77db19237fac85a7cbc16856c0c217",
+  "finished": true,
+  "stop_reason": "duration",
+  "cleanup_started": true,
+  "cleanup_completed": true,
+  "ended_at": "2026-10-09T21:35:01.525263+08:00"
+}

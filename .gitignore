@@ -2,3 +2,8 @@
 .ctp_flow/
 .env
 __pycache__/
+
+/.simnow_private/
+/data/simnow_checks/
+/runs/
+/.cache/

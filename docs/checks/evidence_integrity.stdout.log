@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "checks": {
+    "td_no_disconnect": true,
+    "initial_zero": true,
+    "open_long_one": true,
+    "buy_open_one_filled": true,
+    "sell_close_today_one_filled": true,
+    "final_zero": true,
+    "repeat_zero": true,
+    "own_orders_terminal": true,
+    "reference_client_compared": true,
+    "reference_screenshot_present": true
+  },
+  "comparisons": [
+    {
+      "observations": 181,
+      "timestamp_matches": 181,
+      "equal_six_fields": 181,
+      "differences": 0,
+      "unmatched": 0,
+      "capture_directory": "20261008-235417-e7e9f4"
+    },
+    {
+      "observations": 180,
+      "timestamp_matches": 180,
+      "equal_six_fields": 180,
+      "differences": 0,
+      "unmatched": 0,
+      "capture_directory": "20261008-235715-b50c3a"
+    }
+  ]
+}
+Archive hash, every member hash and current acceptance checks passed.

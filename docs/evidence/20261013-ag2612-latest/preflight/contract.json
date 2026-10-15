@@ -1,0 +1,9 @@
+{
+  "ExchangeID": "SHFE",
+  "MaxLimitOrderVolume": 500,
+  "MinLimitOrderVolume": 1,
+  "VolumeMultiple": 15,
+  "PriceTick": 1.0,
+  "IsTrading": 1,
+  "InstrumentID": "ag2612"
+}

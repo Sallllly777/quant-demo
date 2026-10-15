@@ -1,0 +1,4 @@
+{"received_at": "2026-10-10T22:36:14.435+08:00", "event": "started", "symbol": "ag2612", "duration_seconds": 30}
+{"received_at": "2026-10-10T22:36:14.437+08:00", "event": "creating_api", "production_handshake": true}
+{"received_at": "2026-10-10T22:36:14.442+08:00", "event": "api_created"}
+{"received_at": "2026-10-10T22:36:44.507+08:00", "event": "finished", "status": "no_ticks_observed"}

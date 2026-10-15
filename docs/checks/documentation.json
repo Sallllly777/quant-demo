@@ -1,0 +1,8 @@
+{
+  "checked_at_utc": "2026-10-15T13:27:52.530839+00:00",
+  "status": "pass",
+  "markdown_files": 20,
+  "local_links": 138,
+  "scope": "README/docs/wiki local targets, Wiki frontmatter, title resolution and incoming links; external URLs and factual claims require human review",
+  "issues": []
+}

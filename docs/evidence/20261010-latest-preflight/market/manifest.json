@@ -1,0 +1,11 @@
+{
+  "python": "3.13.8",
+  "vnpy_ctp": "6.7.11.3",
+  "capture_sha256": "d6f6c1b5f1b4f61755877244f98dbdf9e0756df49b1eae99031e99d1883de00e",
+  "duration_seconds": 30,
+  "symbol": "ag2612",
+  "front": "tcp://182.254.243.31:30011",
+  "mode": "market_data_only",
+  "started_at": "2026-10-10T22:36:14.432+08:00",
+  "freshness_rule": "ActionDay plus UpdateTime; local UTC+8 difference -5..60 seconds; not a latency guarantee"
+}

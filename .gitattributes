@@ -1,0 +1,12 @@
+# Preserve exact bytes of source/evidence hashes across Windows/Linux checkout.
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.py -text
+*.ps1 -text
+*.json -text
+*.jsonl -text
+*.csv -text
+*.zip binary
+*.png binary
+# Evidence manifests cover README/log bytes as well as structured records.
+docs/evidence/** -text
+docs/checks/** -text

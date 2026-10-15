@@ -1,0 +1,19 @@
+{
+  "started_at": "2026-10-10T22:36:14.434+08:00",
+  "symbol": "ag2612",
+  "front": "tcp://182.254.243.31:30011",
+  "login_confirmed": false,
+  "subscription_confirmed": false,
+  "tick_count": 0,
+  "fresh_actionday_tick_count": 0,
+  "valid_last_price_count": 0,
+  "disconnect_count": 0,
+  "first_tick_at": null,
+  "last_tick_at": null,
+  "sends_orders": false,
+  "terminal_crosscheck": "not_performed",
+  "status": "no_ticks_observed",
+  "updated_at": "2026-10-10T22:36:44.507+08:00",
+  "distinct_market_times": 0,
+  "finished": true
+}

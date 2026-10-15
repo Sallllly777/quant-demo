@@ -1,0 +1,10 @@
+{
+  "td_front": "tcp://182.254.243.31:30001",
+  "md_front": "tcp://182.254.243.31:30011",
+  "symbol": "ag2612",
+  "max_open_lots": 1,
+  "max_open_attempts": 1,
+  "max_close_attempts": 5,
+  "source_sha256": "7f12d2fb567671e462638a0fb6ddfd808599ac47b659161ec2c0866510e46166",
+  "started_at": "2026-10-10T22:36:07.070+08:00"
+}

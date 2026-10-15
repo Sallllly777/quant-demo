@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-10T22:36:07.070+08:00",
+  "symbol": "ag2612",
+  "simulation": true,
+  "execute": false,
+  "trading_acceptance_passed": false,
+  "independent_client_crosscheck": "pending",
+  "finished": true,
+  "status": "failed",
+  "failure": "td_connection_timeout",
+  "ended_at": "2026-10-10T22:36:32.202+08:00",
+  "market_ticks": 0
+}

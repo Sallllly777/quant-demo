@@ -1,3 +1,4 @@
-# vnpy_ctp is normally installed in VeighNa Studio.
-# Pin versions here only when reproducing a known environment.
-vnpy_ctp
+# Online demos: Windows / Python 3.13, verified local environment.
+vnpy==4.4.0
+vnpy_ctp==6.7.11.3
+# Offline tests use only Python standard library and mocked native APIs.

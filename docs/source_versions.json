@@ -1,0 +1,16 @@
+{
+  "python": "3.13.8",
+  "vnpy": "4.4.0",
+  "vnpy_ctp": "6.7.11.3",
+  "files": {
+    "vnpy/event/engine.py": "df9cf583595d770c2eb43a3b6c6773ad46ef93e7d08182ca5a1901c9b770c84f",
+    "vnpy/trader/engine.py": "338011319a682a865c848de01827e19179af29cfc3ac5350a28bc2e214b71e72",
+    "vnpy/trader/gateway.py": "ad100f04ff3c836b51f4b3d142bb522234288cda6bcd1c561f24690e2c4f4c58",
+    "vnpy/trader/converter.py": "bcb7c98e642dae12015858658730d624a1049b532d1f46644f5691192f1b7b77",
+    "vnpy_ctp/gateway/ctp_gateway.py": "84f954b3ab82d497fd93c37e2a3dc38c327b0db45a950a4f958055f14de07a55",
+    "vnpy_ctastrategy/engine.py": "764a855ca4876ec486c9562be7ed283fb8ec4bb538435105ecde887db676a1ca",
+    "vnpy_ctastrategy/template.py": "3eddc7f53f54d908f34687fd41ea58638fe61974e81239e8c6996beb0ed166ca",
+    "vnpy_ctastrategy/backtesting.py": "934dcb4baefbc1e0e5f8736ee5b841b667c870e66648164101dfaf01fb25b026"
+  },
+  "vnpy_ctastrategy": "1.4.1"
+}

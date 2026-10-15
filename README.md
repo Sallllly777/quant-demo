@@ -1,76 +1,59 @@
-# quantllm
+# quant-demo：CTP 行情与 SimNow 验收
 
-基于 `vnpy_ctp` 底层 Python 交易 API 的 VeighNa 最小行情 Demo。
+基于底层 `MdApi` / `TdApi` 的教学实验，已补充结构化日志、离线测试、平仓对账和源码 WIKI。**全部下单入口固定为 SimNow，默认只查询；不是生产交易系统。**
 
-## Demo 目标
+## 先看验收结果
 
-本仓库把课程项目中已经完成的底层行情实验整理成可以独立阅读和运行的最小示例：
+- **2026-10-13 最新整改版本：ag2612 买开 1 手 14686、卖平今 1 手 14684，开仓后查得今仓 1，两轮最终全账户持仓/活动委托均为 0/0。** [新日志、源码哈希及离线复核](docs/evidence/20261013-ag2612-latest/README.md)。
 
-1. 从 `vnpy_ctp.api.MdApi` 创建行情 API。
-2. 连接 CTP 行情前置。
-3. 在前置连接回调中发送登录请求。
-4. 登录成功后发送合约行情订阅请求。
-5. 在 `onRtnDepthMarketData` 回调中打印 Tick 推送。
+- 2026-10-08 夜盘：ag2612 买开 1 手成交 14338，卖平今 1 手成交 14336；两次全账户查询总持仓 0、活动委托 0。
+- 独立 VeighNa 客户端和采集器 361 条同期行情的时间戳与六字段一致。独立的是进程、连接与处理实现，仍共享 SimNow 上游，不是另一数据供应商。
+- 2026-10-09–10：36 项离线测试通过；新版只读客户端实收 52 Tick 后正常退出；集成入口只读回归取得 13 Tick、空仓及无活动委托。旧版真实开平仓证据与新版回归分别标注。
+- [教师要求到证据的映射](docs/acceptance.md)、[原始成交证据包及说明](docs/evidence/20261008-ag2612/README.md)、[本地检查记录](docs/checks/local_checks.json)。
 
-核心流程位于 [`scripts/market_data_demo.py`](scripts/market_data_demo.py)。这个 Demo 不使用 `CtpGateway`、`EventEngine` 或 GUI，便于从底层回调理解连接和行情数据流。
+## 离线复核，无账号、无网络
 
-## 文件结构
-
-| 文件或目录 | 用途 |
-| --- | --- |
-| `scripts/market_data_demo.py` | 单合约连接、登录、订阅和 Tick 打印入口 |
-| `scripts/active_contracts_demo.py` | 多合约持续订阅和 Tick 打印入口 |
-| `scripts/breakout_buy_demo.py` | 可选的 MdApi + TdApi 触发下单教学扩展，默认 dry-run |
-| `config/ctp_settings.example.json` | 无凭据的连接配置示例 |
-| `docs/demo_flow.md` | 回调顺序、运行方法和边界 |
-| `docs/active_contracts.md` | 多合约订阅说明 |
-| `docs/breakout_buy.md` | 下单扩展示例的安全边界 |
-| `link.md` | vn.py、VeighNa 和 CTP 文档链接 |
-
-## 安装
-
-请使用 VeighNa Studio 自带的 Python，或已经安装 `vnpy_ctp` 的虚拟环境：
+Python 3.13：
 
 ```powershell
-python -m pip install -r requirements.txt
+python -B -m unittest discover -s scripts/simnow -p 'test_*.py' -v
+python -B scripts/verify_evidence.py
+python -B scripts/check_secrets.py --output .cache/security.json
 ```
 
-如果使用项目中的源码副本，可按本机 C++ 构建环境安装 `raw/vnpy_ctp`；Windows 优先使用 VeighNa Studio Python。
+证据复核校验 ZIP 和全部成员哈希，再用当前验收器重算 10 项检查。CI 配置位于 `.github/workflows/offline.yml`；本次仅本地验证，尚未上传运行远端 CI。
 
-## 运行单合约行情 Demo
+## 本机连接与运行
 
-凭据只放在当前终端环境变量中，不要写入代码或 Git：
+在线环境已核验 Windows、Python 3.13.8、vnpy 4.4.0、vnpy_ctp 6.7.11.3。使用安装了这些依赖的 VeighNa Studio Python。`requirements.txt` 记录顶层版本，平台、原生库与完整依赖仍可能影响复现。
 
 ```powershell
-$env:SIMNOW_USERID = '你的用户名'
-$env:SIMNOW_PASSWORD = '你的密码'
-$env:SIMNOW_BROKERID = '9999'
-$env:SIMNOW_MD_ADDRESS = 'tcp://182.254.243.31:30011'
-
-python .\scripts\market_data_demo.py --symbol rb2605
+# 弹出本地配置对话框；账号密码不写在命令、代码或聊天中
+powershell -ExecutionPolicy Bypass -File scripts/simnow/configure.ps1
+# 30 秒只读行情采集
+powershell -ExecutionPolicy Bypass -File scripts/simnow/start.ps1 -Symbol ag2612 -DurationSeconds 30
+# 查询账户、验证新鲜报价与最终状态；不下单
+powershell -ExecutionPolicy Bypass -File scripts/simnow/start_acceptance.ps1
 ```
 
-预期回调顺序是连接、登录成功、订阅确认和类似下面的 Tick：
-
-```text
-[connection] front connected; requesting login.
-[login] successful; subscribing to rb2605
-[subscribe] accepted: rb2605
-[tick] symbol=rb2605 time=... last=... volume=... bid1=... ask1=...
-```
-
-按 `Ctrl+C` 退出。合约月份和行情前置可能随 SimNow 环境变化，应以当前可交易合约为准。
-
-## 多合约订阅
+启动器输出运行目录和 PID，日志在 `data/simnow_checks/<run>/`。`start.ps1` 和 `start_acceptance.ps1` 支持 `-PythonPath` 与 `-CredentialPath`，不要求复制现有加密凭据；DPAPI 配置仅限创建它的 Windows 用户解密。行情成功以 `summary.json` 和 `analyze.py` 为准，进程启动不等于验收通过。
 
 ```powershell
-python .\scripts\active_contracts_demo.py --symbols rb2701 i2701 IF2612
+python -B scripts/simnow/analyze.py --help
+# 仅在准备进行一次新的仿真交易时使用：固定 ag2612，最多买开 1 手并卖平今
+powershell -ExecutionPolicy Bypass -File scripts/simnow/start_acceptance.ps1 -ExecuteSimNow
 ```
 
-## 下单扩展
+需要报价活跃、全账户起始无持仓/活动委托。合约过期或前置变更后须重新审查合约与地址；本仓库不自动切换合约。`-Trigger <价格>` 可等待突破，超时不发单；未指定则作一次开平仓工程验收。原 `--live` 已撤销，`breakout_buy_demo.py` 使用同一安全入口。详见[设计和操作步骤](docs/breakout_buy.md)。
 
-`breakout_buy_demo.py` 同时演示 `MdApi` 和 `TdApi` 的认证、登录、结算确认、合约查询和一次性 FAK 买开请求。默认只 dry-run；只有显式传入 `--live` 才会尝试发送一手仿真委托。它不是生产策略，也没有止损和平仓逻辑。
+## 源码学习
 
-## 安全边界
+从 [WIKI 总览](wiki/overview.md)进入：[底层 API、事件引擎对象导航](wiki/entities/runtime.md)、[订单生命周期原理](wiki/concepts/order-lifecycle.md)、[验收 DEMO 设计](wiki/code/simnow.md)。原 `market_data_demo.py` 与 `active_contracts_demo.py` 继续用于学习回调和多合约订阅；需要留存证据时使用 `scripts/simnow/` 入口。
 
-仓库不包含真实账号、密码、授权码、API token 或交易配置。SimNow 连接和行情回调结果取决于服务器、交易时段和当前合约状态。
+## 边界
+
+成交返回不等于最终空仓，净多空相抵不等于无持仓；验收使用全账户绝对持仓总和，并要求服务器查询完整结束。仅处理本次从空账户开出的 1 手，未知仓位或断线时停止自动发单并保留失败日志。IOC 未成交、通信异常、并发人工操作均可能使验收失败，需要查看真实账户状态；程序不保证在任何故障下平仓。凭据检查结果只覆盖本地可见文件和 Git 历史，不能宣称全球无泄漏。
+
+## 本地交付与提交
+
+[教师要求逐项对照](docs/acceptance.md) · [文件整理和自行提交步骤](docs/submission.md)。

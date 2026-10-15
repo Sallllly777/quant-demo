@@ -1,0 +1,42 @@
+Failed to find real location of C:\veighna_studio\python.exe
+test_active_order_blocks_close (test_acceptance.AcceptanceTests.test_active_order_blocks_close) ... ok
+test_at_most_five_close_attempts_across_cleanup (test_acceptance.AcceptanceTests.test_at_most_five_close_attempts_across_cleanup) ... ok
+test_at_most_one_open (test_acceptance.AcceptanceTests.test_at_most_one_open) ... ok
+test_disconnect_blocks_further_orders (test_acceptance.AcceptanceTests.test_disconnect_blocks_further_orders) ... ok
+test_duplicate_trade_callback_is_idempotent (test_acceptance.AcceptanceTests.test_duplicate_trade_callback_is_idempotent) ... ok
+test_foreign_order_return_ignored (test_acceptance.AcceptanceTests.test_foreign_order_return_ignored) ... ok
+test_invalid_and_empty_books_rejected (test_acceptance.AcceptanceTests.test_invalid_and_empty_books_rejected) ... ok
+test_ioc_zero_fill_terminal_is_not_reported_as_fill (test_acceptance.AcceptanceTests.test_ioc_zero_fill_terminal_is_not_reported_as_fill) ... ok
+test_local_query_error_does_not_look_like_empty (test_acceptance.AcceptanceTests.test_local_query_error_does_not_look_like_empty) ... ok
+test_missing_return_reconciles_from_query (test_acceptance.AcceptanceTests.test_missing_return_reconciles_from_query) ... ok
+test_nonzero_other_contract_blocks (test_acceptance.AcceptanceTests.test_nonzero_other_contract_blocks) ... ok
+test_only_own_still_working_order_cancelled_after_timeout (test_acceptance.AcceptanceTests.test_only_own_still_working_order_cancelled_after_timeout) ... ok
+test_opposite_positions_do_not_net_to_zero (test_acceptance.AcceptanceTests.test_opposite_positions_do_not_net_to_zero) ... ok
+test_order_disabled_without_explicit_switch (test_acceptance.AcceptanceTests.test_order_disabled_without_explicit_switch) ... ok
+test_price_is_bounded_and_fresh (test_acceptance.AcceptanceTests.test_price_is_bounded_and_fresh) ... ok
+test_query_error_cannot_be_empty_success (test_acceptance.AcceptanceTests.test_query_error_cannot_be_empty_success) ... ok
+test_query_requires_last_and_retains_first_row (test_acceptance.AcceptanceTests.test_query_requires_last_and_retains_first_row) ... ok
+test_query_timeout_does_not_look_like_zero (test_acceptance.AcceptanceTests.test_query_timeout_does_not_look_like_zero) ... ok
+test_redaction (test_acceptance.AcceptanceTests.test_redaction) ... ok
+test_second_api_initialization_argument (test_acceptance.AcceptanceTests.test_second_api_initialization_argument) ... ok
+test_trigger_timeout_sends_nothing (test_acceptance.AcceptanceTests.test_trigger_timeout_sends_nothing) ... ok
+test_uncertain_order_does_not_retry_or_cancel_foreign_session (test_acceptance.AcceptanceTests.test_uncertain_order_does_not_retry_or_cancel_foreign_session) ... ok
+test_unknown_order_is_active (test_acceptance.AcceptanceTests.test_unknown_order_is_active) ... ok
+test_unknown_position_never_closed (test_acceptance.AcceptanceTests.test_unknown_position_never_closed) ... ok
+test_empty_snapshot_is_not_market_success (test_capture.RecorderTests.test_empty_snapshot_is_not_market_success) ... ok
+test_failed_login_stops_without_subscription_and_redacts_errors (test_capture.RecorderTests.test_failed_login_stops_without_subscription_and_redacts_errors) ... ok
+test_login_does_not_claim_subscription_until_confirmation (test_capture.RecorderTests.test_login_does_not_claim_subscription_until_confirmation) ... ok
+test_real_time_fields_retained_stale_tick_not_counted_fresh (test_capture.RecorderTests.test_real_time_fields_retained_stale_tick_not_counted_fresh) ... ok
+test_report_distinguishes_cached_snapshot_and_recent_advancing_stream (test_capture.RecorderTests.test_report_distinguishes_cached_snapshot_and_recent_advancing_stream) ... ok
+test_report_rejects_unfinished_observation (test_capture.RecorderTests.test_report_rejects_unfinished_observation) ... ok
+test_start_includes_handshake_mode_required_by_installed_api (test_capture.RecorderTests.test_start_includes_handshake_mode_required_by_installed_api) ... ok
+test_all_fields_equal (test_verify_acceptance.ComparisonTests.test_all_fields_equal) ... ok
+test_equal_price_but_volume_difference_fails (test_verify_acceptance.ComparisonTests.test_equal_price_but_volume_difference_fails) ... ok
+test_missing_timestamp_not_matched_by_price (test_verify_acceptance.ComparisonTests.test_missing_timestamp_not_matched_by_price) ... ok
+test_same_order_ref_different_session_is_not_ours (test_verify_acceptance.ComparisonTests.test_same_order_ref_different_session_is_not_ours) ... ok
+test_wrong_contract_rejected (test_verify_acceptance.ComparisonTests.test_wrong_contract_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.340s
+
+OK

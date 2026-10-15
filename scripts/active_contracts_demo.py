@@ -61,7 +61,7 @@ class ContinuousMarketDataApi(MdApi):
     def onRspUserLogin(self, data: dict, error: dict, reqid: int, last: bool) -> None:
         if error.get("ErrorID", -1):
             print(
-                f"[login] failed (error={error.get('ErrorID')}): {error.get('ErrorMsg', '')}",
+                f"[login] failed (error={error.get('ErrorID')}): [message omitted]",
                 file=sys.stderr,
             )
             self.stopped.set()
@@ -74,7 +74,7 @@ class ContinuousMarketDataApi(MdApi):
     def onRspError(self, error: dict, reqid: int, last: bool) -> None:
         print(
             f"[ctp-error] request={reqid}, error={error.get('ErrorID')}: "
-            f"{error.get('ErrorMsg', '')}",
+            f"[message omitted]",
             file=sys.stderr,
         )
 
@@ -83,7 +83,7 @@ class ContinuousMarketDataApi(MdApi):
         if error.get("ErrorID", -1):
             print(
                 f"[subscribe] rejected: {symbol}; error={error.get('ErrorID')}: "
-                f"{error.get('ErrorMsg', '')}",
+                f"[message omitted]",
                 file=sys.stderr,
             )
         else:
@@ -106,7 +106,7 @@ class ContinuousMarketDataApi(MdApi):
     def start(self) -> None:
         flow_path = Path.cwd() / ".ctp_flow"
         flow_path.mkdir(exist_ok=True)
-        self.createFtdcMdApi(str(flow_path).encode("gbk"))
+        self.createFtdcMdApi((str(flow_path) + os.sep).encode("gbk"), True)
         self.registerFront(self.settings.address)
         self.init()
 

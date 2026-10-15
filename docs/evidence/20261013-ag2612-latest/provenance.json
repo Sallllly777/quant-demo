@@ -1,0 +1,20 @@
+{
+  "recorded_at_utc": "2026-10-12T16:50:29.895892+00:00",
+  "simulation": true,
+  "symbol": "ag2612",
+  "runs": {
+    "preflight": "20261013-004836-acceptance-0f2a56",
+    "trade": "20261013-004913-acceptance-f25012"
+  },
+  "repository_base_commit": "9928fdb1e29ee42a54a31b541cc6597ec280e734",
+  "worktree_modified": true,
+  "acceptance_sha256": "7f12d2fb567671e462638a0fb6ddfd808599ac47b659161ec2c0866510e46166",
+  "source_matches_prior_offline_checks": true,
+  "python": "3.13.8 (heads/4.1-dirty:851bb6b, Dec  6 2025, 16:17:24) [MSC v.1936 64 bit (AMD64)]",
+  "dependencies": {
+    "vnpy": "4.4.0",
+    "vnpy_ctp": "6.7.11.3"
+  },
+  "independent_client_crosscheck_this_run": "not_repeated; prior 20261008 evidence is separate",
+  "scope": "Latest remediated code one-lot SimNow position round trip. No real-money account. No strategy profitability conclusion."
+}

@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "checks": {
+    "all_account_and_trade_queries_complete": true,
+    "initial_matches_raw_queries": true,
+    "after_open_matches_raw_queries": true,
+    "final_matches_raw_queries": true,
+    "final_repeat_matches_raw_queries": true,
+    "initial_and_both_final_zero": true,
+    "open_long_today_one": true,
+    "second_final_query_later": true,
+    "one_trading_session": true,
+    "exactly_two_owned_filled_orders": true,
+    "buy_open_one_sell_close_today_one": true,
+    "saved_trades_equal_server_query": true,
+    "fresh_advancing_market_ticks": true,
+    "no_disconnect_or_failure": true,
+    "finished_passed_simulation": true,
+    "processes_exited": true,
+    "source_bound_to_run_and_tests": true,
+    "archive_hashes_match": true
+  },
+  "snapshots": {
+    "initial": {
+      "at": "2026-10-13T00:49:16.908+08:00",
+      "gross_position": 0,
+      "active_orders": 0
+    },
+    "after_open": {
+      "at": "2026-10-13T00:49:19.115+08:00",
+      "gross_position": 1,
+      "active_orders": 0
+    },
+    "final": {
+      "at": "2026-10-13T00:49:25.721+08:00",
+      "gross_position": 0,
+      "active_orders": 0
+    },
+    "final_repeat": {
+      "at": "2026-10-13T00:49:28.867+08:00",
+      "gross_position": 0,
+      "active_orders": 0
+    }
+  },
+  "trades": [
+    {
+      "OrderRef": "2",
+      "ExchangeID": "SHFE",
+      "TradeID": "       85914",
+      "Direction": "0",
+      "OrderSysID": "      144847",
+      "OffsetFlag": "0",
+      "Price": 14686.0,
+      "Volume": 1,
+      "TradeDate": "20261013",
+      "TradeTime": "00:49:16",
+      "TradingDay": "20261013",
+      "InstrumentID": "ag2612"
+    },
+    {
+      "OrderRef": "3",
+      "ExchangeID": "SHFE",
+      "TradeID": "       85922",
+      "Direction": "1",
+      "OrderSysID": "      144861",
+      "OffsetFlag": "3",
+      "Price": 14684.0,
+      "Volume": 1,
+      "TradeDate": "20261013",
+      "TradeTime": "00:49:20",
+      "TradingDay": "20261013",
+      "InstrumentID": "ag2612"
+    }
+  ],
+  "market_ticks": 26,
+  "max_market_age_seconds": 1.161,
+  "scope": "This run: position round trip only; independent-client comparison was not repeated."
+}

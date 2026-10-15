@@ -63,7 +63,7 @@ class PrintMarketDataApi(MdApi):
         if error_id:
             print(
                 f"[login] failed (request={reqid}, error={error_id}): "
-                f"{error.get('ErrorMsg', '')}",
+                f"[message omitted]",
                 file=sys.stderr,
             )
             self.stopped.set()
@@ -76,7 +76,7 @@ class PrintMarketDataApi(MdApi):
     def onRspError(self, error: dict, reqid: int, last: bool) -> None:
         print(
             f"[ctp-error] request={reqid}, error={error.get('ErrorID')}: "
-            f"{error.get('ErrorMsg', '')}",
+            f"[message omitted]",
             file=sys.stderr,
         )
 
@@ -85,7 +85,7 @@ class PrintMarketDataApi(MdApi):
         if error_id:
             print(
                 f"[subscribe] failed for {data.get('InstrumentID', self.symbol)} "
-                f"(error={error_id}): {error.get('ErrorMsg', '')}",
+                f"(error={error_id}): [message omitted]",
                 file=sys.stderr,
             )
             return
@@ -107,7 +107,7 @@ class PrintMarketDataApi(MdApi):
         """Create the native API instance and begin the asynchronous connection."""
         flow_path = Path.cwd() / ".ctp_flow"
         flow_path.mkdir(exist_ok=True)
-        self.createFtdcMdApi(str(flow_path).encode("gbk"))
+        self.createFtdcMdApi((str(flow_path) + os.sep).encode("gbk"), True)
         self.registerFront(self.settings.address)
         self.init()
 
@@ -125,7 +125,7 @@ def required_env(name: str) -> str:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Minimal vnpy_ctp SimNow market-data demo")
-    parser.add_argument("--symbol", required=True, help="CTP instrument ID to subscribe, e.g. rb2605")
+    parser.add_argument("--symbol", required=True, help="CTP instrument ID to subscribe, e.g. ag2612")
     parser.add_argument(
         "--md-address",
         default=os.getenv("SIMNOW_MD_ADDRESS", "tcp://182.254.243.31:30011"),

@@ -1,0 +1,19 @@
+{
+  "started_at": "2026-10-09T21:36:46.924+08:00",
+  "symbol": "ag2612",
+  "simulation": true,
+  "execute": false,
+  "trading_acceptance_passed": false,
+  "independent_client_crosscheck": "pending",
+  "finished": true,
+  "preflight_passed": true,
+  "initial_quote_valid": true,
+  "open_trade_lots": 0,
+  "close_trade_lots": 0,
+  "final_gross_position": 0,
+  "final_active_orders": 0,
+  "td_disconnects": 0,
+  "status": "preflight_only",
+  "ended_at": "2026-10-09T21:36:59.794+08:00",
+  "market_ticks": 13
+}
